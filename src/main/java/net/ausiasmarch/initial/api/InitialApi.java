@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import net.ausiasmarch.initial.entity.InitialEntity;
 import net.ausiasmarch.initial.repository.InitialRepository;
 
@@ -18,6 +17,11 @@ public class InitialApi {
 
     @Autowired
     InitialRepository oInitialRepository;
+
+    @GetMapping("")
+    public ResponseEntity<String> get() {
+        return ResponseEntity.ok("\"Initial works!\"");
+    }
 
     @GetMapping("/{id}")
     public ResponseEntity<InitialEntity> get(@PathVariable("id") Long id) {
